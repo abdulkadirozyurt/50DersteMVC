@@ -1,8 +1,31 @@
-﻿
+﻿@using _50DersteMVC.Models.Entity
+@model List<Category>
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>KATEGORİ LİSTESİ</h2>
+<table class="table table-bordered">
+    
+    <tr>
+        <th>Id</th>
+        <th>Kategori</th>
+        <th></th>
+    </tr>
+    
+    <tbody>
+        
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.Id</td>
+            <td>@item.CategoryName</td>
+        </tr>
+        
+        
+    }
+        
+    </tbody>
+
+</table>
 
