@@ -1,0 +1,38 @@
+﻿@using _50DersteMVC.Models.Entity
+@model List<Customer>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<a href="/Customers/AddCustomer/" class="btn btn-primary">Yeni Müşteri</a>
+<br/>
+<br/>
+<table class="table table-bordered">
+
+    <tr>
+        <th>#</th>
+        <th>Müşteri</th>
+        <th></th>
+
+    </tr>
+
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Id</td>
+                <td>@item.FirstName @item.LastName</td>
+                <td>
+                    <a href="/Customers/DeleteCustomer/@item.Id" class="btn btn-danger">Sil</a>
+                    <a href="/Customers/UpdateCustomer/@item.Id" class="btn btn-success">Güncelle</a>
+
+                </td>
+
+            </tr>
+        }
+
+    </tbody>
+
+</table>
+

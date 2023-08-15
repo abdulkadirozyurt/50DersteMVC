@@ -1,0 +1,39 @@
+﻿@model _50DersteMVC.Models.Entity.Category
+@{
+    ViewBag.Title = "AddProduct";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<form method="post" class="form-group">
+
+    <div>
+        <label>Ürün Adı</label>
+        <input type="text" name="ProductName" class="form-control" />
+    </div>
+    <div>
+        <label>Marka</label>
+        <input type="text" name="Brand" class="form-control" />
+    </div>
+    <div>
+        
+        <label>Kategori</label>
+        @Html.DropDownListFor(m=>m.CategoryName,(List<SelectListItem>)ViewBag.Categories,new {@class="form-control"})
+    </div>
+    <div>
+        <label>Birim Fiyat</label>
+        <input type="text" name="UnitPrice" class="form-control" />
+    </div>
+    <div>
+        <label>Stok Miktarı</label>
+        <input type="text" name="StockAmount" class="form-control" />
+    </div>
+  
+
+
+    <div style="margin-top:15px">
+        <button class="btn btn-info">Kaydet</button>
+    </div>
+
+
+</form>
+

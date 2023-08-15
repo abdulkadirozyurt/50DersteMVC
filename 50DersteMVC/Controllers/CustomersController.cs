@@ -7,30 +7,29 @@ using _50DersteMVC.Models.Entity;
 
 namespace _50DersteMVC.Controllers
 {
-    public class CategoriesController : Controller
+    public class CustomersController : Controller
     {
-        // GET: Default
         Entities entities = new Entities();
         public ActionResult Index()
         {
-            var categories = entities.Categories.ToList();
-            return View(categories);
+            var customers = entities.Customers.ToList();
+
+            return View(customers);
         }
 
         [HttpGet]
-        public ActionResult AddCategory()
+        public ActionResult AddCustomer()
         {
-
             return View();
         }
 
         [HttpPost]
-        public ActionResult AddCategory(Category category)
+        public ActionResult AddCustomer(Customer customer)
         {
-            entities.Categories.Add(category);
+            entities.Customers.Add(customer);
             entities.SaveChanges();
+
             return RedirectToAction("Index");
         }
-
     }
 }
