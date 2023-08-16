@@ -1,4 +1,4 @@
-﻿@model _50DersteMVC.Models.Entity.Category
+﻿@model _50DersteMVC.Models.Entity.Product
 @{
     ViewBag.Title = "AddProduct";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -15,9 +15,9 @@
         <input type="text" name="Brand" class="form-control" />
     </div>
     <div>
-        
+
         <label>Kategori</label>
-        @Html.DropDownListFor(m=>m.CategoryName,(List<SelectListItem>)ViewBag.Categories,new {@class="form-control"})
+        @Html.DropDownListFor(m => m.Category.Id, (List<SelectListItem>)ViewBag.Categories, new { @class = "form-control" })
     </div>
     <div>
         <label>Birim Fiyat</label>
@@ -27,7 +27,7 @@
         <label>Stok Miktarı</label>
         <input type="text" name="StockAmount" class="form-control" />
     </div>
-  
+
 
 
     <div style="margin-top:15px">
@@ -37,3 +37,19 @@
 
 </form>
 
+
+
+@* 
+    
+    
+    
+    m => m.Category.Id   ifadesi , dropdownlist'te seçilen öğenin değerinin atanacağı property'yi temsil ediyor.
+    
+    
+    
+    
+    
+    
+    
+    
+    *@

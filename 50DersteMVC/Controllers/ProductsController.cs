@@ -40,6 +40,9 @@ namespace _50DersteMVC.Controllers
         [HttpPost]
         public ActionResult AddProduct(Product product)
         {
+            var category = entities.Categories.Where(c => c.Id == product.Category.Id).FirstOrDefault();
+            product.Category = category;
+
             entities.Products.Add(product);
             entities.SaveChanges();
             return RedirectToAction("Index");
