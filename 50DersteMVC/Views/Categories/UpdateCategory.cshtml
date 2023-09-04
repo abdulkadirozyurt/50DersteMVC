@@ -1,0 +1,20 @@
+﻿@model _50DersteMVC.Models.Entity.Category
+@{
+    ViewBag.Title = "UpdateCategory";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<form method="post" class="form-group">
+
+    @Html.Label("Id")
+    @Html.TextBoxFor(m => m.Id, new { @class = "form-control" })
+    <br>
+
+    @Html.Label("Kategori Adı")
+    @Html.TextBoxFor(m => m.CategoryName, new { @class = "form-control" })
+    <br>
+
+
+    <button class="btn btn-primary">Güncelle</button>
+</form>
+    

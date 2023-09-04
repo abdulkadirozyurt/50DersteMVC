@@ -42,5 +42,25 @@ namespace _50DersteMVC.Controllers
             return RedirectToAction("Index");
         }
 
+        [HttpGet]
+        public ActionResult UpdateCategory(int id)
+        {
+            var category = entities.Categories.Find(id);
+
+            return View(category);
+
+        }
+
+        [HttpPost]
+        public ActionResult UpdateCategory(Category category)
+        {
+            var categoryToUpdate = entities.Categories.Find(category.Id);
+            categoryToUpdate.CategoryName = category.CategoryName;
+            entities.SaveChanges();
+
+            return RedirectToAction("Index");
+
+        }
+
     }
 }
