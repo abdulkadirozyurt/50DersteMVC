@@ -47,5 +47,16 @@ namespace _50DersteMVC.Controllers
             entities.SaveChanges();
             return RedirectToAction("Index");
         }
+
+        public ActionResult DeleteProduct(int id)
+        {
+            var product = entities.Products.Find(id);
+
+            entities.Products.Remove(product);
+            entities.SaveChanges(); 
+            return RedirectToAction("Index");
+        }
+
+
     }
 }

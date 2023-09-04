@@ -23,9 +23,9 @@ namespace _50DersteMVC.Models.Entity
         public int Id { get; set; }
         public string ProductName { get; set; }
         public string Brand { get; set; }
-        public Nullable<int> CategoryId { get; set; }
-        public Nullable<decimal> UnitPrice { get; set; }
-        public Nullable<int> StockAmount { get; set; }
+        public int CategoryId { get; set; }
+        public decimal UnitPrice { get; set; }
+        public int StockAmount { get; set; }
     
         public virtual Category Category { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

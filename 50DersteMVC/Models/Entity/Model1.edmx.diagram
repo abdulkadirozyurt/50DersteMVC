@@ -5,14 +5,14 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="813d50efc9754c8dbc939fbf8364007c" Name="Diagram1">
-        <EntityTypeShape EntityType="DersteMVCModel.Category" Width="1.5" PointX="0.75" PointY="1.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="DersteMVCModel.Customer" Width="1.5" PointX="2.875" PointY="4.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="DersteMVCModel.Order" Width="1.5" PointX="5.25" PointY="1" IsExpanded="true" />
-        <EntityTypeShape EntityType="DersteMVCModel.Product" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
-        <EntityTypeShape EntityType="DersteMVCModel.sysdiagram" Width="1.5" PointX="5.75" PointY="4.75" IsExpanded="true" />
-        <AssociationConnector Association="DersteMVCModel.FK_Products_Categories" ManuallyRouted="false" />
-        <AssociationConnector Association="DersteMVCModel.FK_Orders_Customers" ManuallyRouted="false" />
-        <AssociationConnector Association="DersteMVCModel.FK_Orders_Products" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="DersteMVCModel.Category" Width="1.5" PointX="0.625" PointY="0.875" />
+        <EntityTypeShape EntityType="DersteMVCModel.Customer" Width="1.5" PointX="2.875" PointY="4.875" />
+        <EntityTypeShape EntityType="DersteMVCModel.Order" Width="1.5" PointX="5.125" PointY="0.5" />
+        <EntityTypeShape EntityType="DersteMVCModel.Product" Width="1.5" PointX="2.875" PointY="0.5" />
+        <EntityTypeShape EntityType="DersteMVCModel.sysdiagram" Width="1.5" PointX="5.625" PointY="4.25" />
+        <AssociationConnector Association="DersteMVCModel.FK_Products_Categories" />
+        <AssociationConnector Association="DersteMVCModel.FK_Orders_Customers" />
+        <AssociationConnector Association="DersteMVCModel.FK_Orders_Products" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

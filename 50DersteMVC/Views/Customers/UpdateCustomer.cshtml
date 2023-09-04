@@ -1,0 +1,23 @@
+﻿@model _50DersteMVC.Models.Entity.Customer
+@{
+    ViewBag.Title = "UpdateCustomer";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<form method="post" class="form-group">
+
+    @Html.Label("Id")
+    @Html.TextBoxFor(c => c.Id, new { @class = "form-control" })
+    <br>
+
+    @Html.Label("Müşteri Adı")
+    @Html.TextBoxFor(c => c.FirstName, new { @class = "form-control" })
+    <br>
+
+    @Html.Label("Müşteri Soyadı")
+    @Html.TextBoxFor(c => c.LastName, new { @class = "form-control" })
+    <br>
+
+    <button class="btn btn-primary">Güncelle</button>
+</form>
+

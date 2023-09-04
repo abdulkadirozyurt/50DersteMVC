@@ -135,6 +135,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Entity\Category.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -249,6 +250,7 @@
     <Content Include="Views\Categories\AddCategory.cshtml" />
     <Content Include="Views\Customers\AddCustomer.cshtml" />
     <Content Include="Views\Products\AddProduct.cshtml" />
+    <Content Include="Views\Customers\UpdateCustomer.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

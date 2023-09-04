@@ -31,5 +31,37 @@ namespace _50DersteMVC.Controllers
 
             return RedirectToAction("Index");
         }
+
+        public ActionResult DeleteCustomer(int id)
+        {
+            var customer = entities.Customers.Find(id);
+            entities.Customers.Remove(customer);
+            entities.SaveChanges();
+
+
+            return RedirectToAction("Index");
+
+        }
+
+        [HttpGet]
+        public ActionResult UpdateCustomer(int id)
+        {
+            var customer = entities.Customers.Find(id);
+
+
+            return View(customer);
+        }
+
+        [HttpPost]
+        public ActionResult UpdateCustomer(Customer customer)
+        {
+            var customerToUpdate = entities.Customers.Find(customer.Id);
+            customerToUpdate.FirstName= customer.FirstName;
+            customerToUpdate.LastName = customer.LastName;
+            
+            entities.SaveChanges(); 
+
+            return RedirectToAction("Index");
+        }
     }
 }

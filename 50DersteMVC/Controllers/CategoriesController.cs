@@ -32,5 +32,15 @@ namespace _50DersteMVC.Controllers
             return RedirectToAction("Index");
         }
 
+        public ActionResult DeleteCategory(int id)
+        {
+            var category = entities.Categories.Find(id);
+
+            entities.Categories.Remove(category);
+            entities.SaveChanges();
+
+            return RedirectToAction("Index");
+        }
+
     }
 }
