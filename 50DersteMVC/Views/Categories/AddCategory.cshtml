@@ -6,14 +6,15 @@
 
 <form method="post" class="form-group">
 
-    @*@Html.Label("Kategori Adı")
+    @Html.Label("Kategori Adı")
         @Html.TextBoxFor(model => model.CategoryName, new { @class = "form-control" })
-        <br/>*@
+    @Html.ValidationMessageFor(m=>m.CategoryName,"",new { @style="color: blue"})
+        <br/>
 
-    <div>
+    @*<div>
         <label>Kategori Adı</label>
         <input type="text" class="form-control" name="CategoryName" />
-    </div>
+    </div>*@
 
 
 

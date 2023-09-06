@@ -11,7 +11,8 @@ namespace _50DersteMVC.Models.Entity
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class Product
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -19,14 +20,25 @@ namespace _50DersteMVC.Models.Entity
         {
             this.Orders = new HashSet<Order>();
         }
-    
+
         public int Id { get; set; }
+
+        [Required(ErrorMessage = "Ürün ismi boþ geçilemez.")]
         public string ProductName { get; set; }
+
+        [Required(ErrorMessage = "Marka giriniz.")]
         public string Brand { get; set; }
+
+        //[Required(ErrorMessage = "Kategori Seçiniz.")]
         public int CategoryId { get; set; }
+
+        [Required(ErrorMessage = "Fiyat alaný boþ geçilemez.")]
         public decimal UnitPrice { get; set; }
+
+        [Required(ErrorMessage = "Stok Giriniz.")]
         public int StockAmount { get; set; }
-    
+
+        
         public virtual Category Category { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Order> Orders { get; set; }

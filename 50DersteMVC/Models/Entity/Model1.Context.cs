@@ -10,6 +10,7 @@
 namespace _50DersteMVC.Models.Entity
 {
     using System;
+   
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
@@ -25,6 +26,7 @@ namespace _50DersteMVC.Models.Entity
             throw new UnintentionalCodeFirstException();
         }
     
+        
         public virtual DbSet<Category> Categories { get; set; }
         public virtual DbSet<Customer> Customers { get; set; }
         public virtual DbSet<Order> Orders { get; set; }

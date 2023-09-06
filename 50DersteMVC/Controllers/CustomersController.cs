@@ -26,6 +26,11 @@ namespace _50DersteMVC.Controllers
         [HttpPost]
         public ActionResult AddCustomer(Customer customer)
         {
+            if (!ModelState.IsValid)
+            {
+                return View("AddCustomer");
+            }
+
             entities.Customers.Add(customer);
             entities.SaveChanges();
 

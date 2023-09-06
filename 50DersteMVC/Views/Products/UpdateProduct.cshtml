@@ -1,0 +1,39 @@
+﻿@model _50DersteMVC.Models.Entity.Product
+
+@{
+    ViewBag.Title = "UpdateProduct";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using (Html.BeginForm("UpdateProduct", "Products", FormMethod.Post))
+{
+    @Html.Label("Id")
+    @Html.TextBoxFor(m => m.Id, new { @class = "form-control" })
+    <br />
+
+    @Html.Label("Ürün Adı")
+    @Html.TextBoxFor(m => m.ProductName, new { @class = "form-control" })
+    <br />
+
+    @Html.Label("Marka")
+    @Html.TextBoxFor(m => m.Brand, new { @class = "form-control" })
+    <br />
+
+    @Html.LabelFor(m=>m.Category.CategoryName)
+    @Html.DropDownListFor(m => m.Category.Id,(List<SelectListItem>)ViewBag.Categories, new { @class = "form-control" })
+    <br />
+
+    @Html.Label("Birim Fiyat")
+    @Html.TextBoxFor(m => m.UnitPrice, new { @class = "form-control" })
+    <br />
+
+    @Html.Label("Stok Sayısı")
+    @Html.TextBoxFor(m => m.StockAmount, new { @class = "form-control" })
+    <br />
+
+    <button class="btn btn-warning">Güncelle</button>
+}
+
+
+
+

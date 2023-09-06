@@ -4,17 +4,37 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<form method="post" class="form-group">
+@*<form method="post" class="form-group">
 
-    @Html.Label("Id")
+        @Html.Label("Id")
+        @Html.TextBoxFor(m => m.Id, new { @class = "form-control" })
+        <br>
+
+        @Html.Label("Kategori Adı")
+        @Html.TextBoxFor(m => m.CategoryName, new { @class = "form-control" })
+        <br>
+
+
+        <button class="btn btn-primary">Güncelle</button>
+    </form>*@
+
+
+
+@using (Html.BeginForm("UpdateCategory", "Categories", FormMethod.Post))
+{
+    @Html.LabelFor(m => m.Id)
     @Html.TextBoxFor(m => m.Id, new { @class = "form-control" })
+
     <br>
 
-    @Html.Label("Kategori Adı")
+    @Html.LabelFor(m=>m.CategoryName)
     @Html.TextBoxFor(m => m.CategoryName, new { @class = "form-control" })
     <br>
 
+    <button class="btn btn-warning">Güncelle</button>
+}
 
-    <button class="btn btn-primary">Güncelle</button>
-</form>
-    
+
+
+
+@* Farklı bir form oluşturma şekli kullandık burada *@

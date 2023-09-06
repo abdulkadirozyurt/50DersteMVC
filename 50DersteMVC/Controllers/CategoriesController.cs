@@ -27,6 +27,10 @@ namespace _50DersteMVC.Controllers
         [HttpPost]
         public ActionResult AddCategory(Category category)
         {
+            if (!ModelState.IsValid)
+            {
+                return View("AddCategory");
+            }
             entities.Categories.Add(category);
             entities.SaveChanges();
             return RedirectToAction("Index");

@@ -6,52 +6,79 @@
 
 <form method="post" class="form-group">
 
-    <div>
-        <label>Ürün Adı</label>
-        <input type="text" name="ProductName" class="form-control" />
-    </div>
-    <div>
-        <label>Marka</label>
-        <input type="text" name="Brand" class="form-control" />
-    </div>
-    <div>
+    @*<div>
+            <label>Ürün Adı</label>
+            <input type="text" name="ProductName" class="form-control" />
+        </div>
+        <div>
+            <label>Marka</label>
+            <input type="text" name="Brand" class="form-control" />
+        </div>
+        <div>
 
-        <label>Kategori</label>
-        @Html.DropDownListFor(m => m.Category.Id, (List<SelectListItem>)ViewBag.Categories, new { @class = "form-control" })
-    </div>
-    <div>
-        <label>Birim Fiyat</label>
-        <input type="text" name="UnitPrice" class="form-control" />
-    </div>
-    <div>
-        <label>Stok Miktarı</label>
-        <input type="text" name="StockAmount" class="form-control" />
-    </div>
+            <label>Kategori</label>
+            @Html.DropDownListFor(m => m.Category.Id, (List<SelectListItem>)ViewBag.Categories, new { @class = "form-control" })
+        </div>
+        <div>
+            <label>Birim Fiyat</label>
+            <input type="text" name="UnitPrice" class="form-control" />
+        </div>
+        <div>
+            <label>Stok Miktarı</label>
+            <input type="text" name="StockAmount" class="form-control" />
+        </div>
 
 
 
-    <div style="margin-top:15px">
-        <button class="btn btn-info">Kaydet</button>
-    </div>
+        <div style="margin-top:15px">
+            <button class="btn btn-info">Kaydet</button>
+        </div>*@
 
+    @Html.Label("Ürün İsmi")
+    @Html.TextBoxFor(m => m.ProductName, new { @class = "form-control" })
+    @Html.ValidationMessageFor(m => m.ProductName, "", new { @style = "color: red" })
+    <br />
+
+    @Html.Label("Marka")
+    @Html.TextBoxFor(m => m.Brand, new { @class = "form-control" })
+    @Html.ValidationMessageFor(m => m.Brand, "", new { @style = "color: red" })
+    <br />
+
+    @Html.Label("Kategori")
+    @Html.DropDownListFor(m => m.Category.Id, (List<SelectListItem>)ViewBag.Categories, new { @class = "form-control" })
+    @*@Html.ValidationMessageFor(m => m.Category.Id, "", new { @style = "color: red" })*@
+    <br />
+
+    @Html.Label("Birim Fiyat")
+    @Html.TextBoxFor(m => m.UnitPrice, new { @class = "form-control" })
+    @Html.ValidationMessageFor(m => m.UnitPrice, "", new { @style = "color: red" })
+    <br />
+
+    @Html.Label("Stok Sayısı")
+    @Html.TextBoxFor(m => m.StockAmount, new { @class = "form-control" })
+    @Html.ValidationMessageFor(m => m.StockAmount, "", new { @style = "color: red" })
+    <br />
+
+
+    <button class="btn btn-primary">Kaydet</button>
 
 </form>
 
 
 
 
-@* 
-    
-    
-    
-    m => m.Category.Id   ifadesi , 
+@*
+
+
+
+    m => m.Category.Id   ifadesi ,
     dropdownlist'te seçilen öğenin değerinin atanacağı property'yi temsil ediyor.
-    
-    
-    
-    
-    
-    
-    
-    
-    *@
+
+
+
+
+
+
+
+
+*@

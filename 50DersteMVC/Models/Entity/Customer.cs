@@ -11,7 +11,8 @@ namespace _50DersteMVC.Models.Entity
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class Customer
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -19,11 +20,17 @@ namespace _50DersteMVC.Models.Entity
         {
             this.Orders = new HashSet<Order>();
         }
-    
+
         public int Id { get; set; }
+
+        [Required(ErrorMessage = "Ad alaný boþ geçilemez.")]
+        [StringLength(50, ErrorMessage = "Maksimum 50 karakter girilebilir.")]
         public string FirstName { get; set; }
+
+        [Required(ErrorMessage = "Soyad alaný boþ geçilemez.")]
+        [StringLength(50, ErrorMessage = "Maksimum 50 karakter girilebilir.")]
         public string LastName { get; set; }
-    
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Order> Orders { get; set; }
     }

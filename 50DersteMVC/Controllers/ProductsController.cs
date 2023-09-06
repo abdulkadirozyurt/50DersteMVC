@@ -20,6 +20,7 @@ namespace _50DersteMVC.Controllers
         [HttpGet]
         public ActionResult AddProduct()
         {
+
             List<SelectListItem> categories = (from i in entities.Categories.ToList()
                                                select new SelectListItem
                                                {
@@ -40,6 +41,7 @@ namespace _50DersteMVC.Controllers
         [HttpPost]
         public ActionResult AddProduct(Product product)
         {
+
             var category = entities.Categories.Where(c => c.Id == product.Category.Id).FirstOrDefault();
             product.Category = category;
 
@@ -53,10 +55,48 @@ namespace _50DersteMVC.Controllers
             var product = entities.Products.Find(id);
 
             entities.Products.Remove(product);
-            entities.SaveChanges(); 
+            entities.SaveChanges();
+            return RedirectToAction("Index");
+        }
+
+        [HttpGet]
+        public ActionResult UpdateProduct(int id)
+        {
+            var product = entities.Products.Find(id);
+
+            List<SelectListItem> categories = (from item in entities.Categories.ToList()
+                                               select new SelectListItem
+                                               {
+                                                   Text = item.CategoryName,
+                                                   Value = item.Id.ToString()
+                                               }
+
+                                               ).ToList();
+            ViewBag.Categories = categories;
+            return View(product);
+        }
+
+        [HttpPost]
+        public ActionResult UpdateProduct(Product product)
+        {
+            var productToUpdate = entities.Products.Find(product.Id);
+
+            var category = entities.Categories.Where(c => c.Id == product.Category.Id).FirstOrDefault();
+
+            productToUpdate.ProductName = product.ProductName;
+            productToUpdate.Brand = product.Brand;
+
+            productToUpdate.CategoryId = category.Id;
+
+            productToUpdate.UnitPrice = product.UnitPrice;
+            productToUpdate.StockAmount = product.StockAmount;
+            entities.SaveChanges();
+
             return RedirectToAction("Index");
         }
 
 
     }
 }
+
+
