@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using _50DersteMVC.Models.Entity;
+using PagedList;
 
 namespace _50DersteMVC.Controllers
 {
@@ -11,9 +12,11 @@ namespace _50DersteMVC.Controllers
     {
         // GET: Default
         Entities entities = new Entities();
-        public ActionResult Index()
+        public ActionResult Index(int page = 1)
         {
-            var categories = entities.Categories.ToList();
+            //var categories = entities.Categories.ToList();
+
+            var categories = entities.Categories.ToList().ToPagedList(page, 10);
             return View(categories);
         }
 

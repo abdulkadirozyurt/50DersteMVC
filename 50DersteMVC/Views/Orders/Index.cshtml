@@ -1,0 +1,44 @@
+﻿@model _50DersteMVC.Models.Entity.Order
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#Modal1">
+    Satış Yap
+</button>
+
+<div class="modal" id="Modal1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">Satış Yapma Ekranı</h2>
+            </div>
+
+            <form method="post" action="/Orders/NewOrder">
+                <div class="modal-body">
+                    <label>Ürün Adı</label>
+                    @Html.TextBoxFor(m => m.Product.Id, new { @class = "form-control" })
+                    <br />
+
+                    <label>Adet</label>
+                    @Html.TextBoxFor(m => m.Quantity, new { @class = "form-control" })
+                    <br />
+
+                    <label>Müşteri Ad Soyad</label>
+                    @Html.TextBoxFor(m => m.Customer.Id, new { @class = "form-control" })
+                    <br />
+
+                    <label>Toplam Fiyat</label>
+                    @Html.TextBoxFor(m => m.TotalPrice, new { @class = "form-control" })
+                    <br />
+
+                    <button type="submit" class="btn btn-info">Satış işlemini yap</button>
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Vazgeç</button>
+
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+

@@ -23,19 +23,14 @@ namespace _50DersteMVC.Models.Entity
 
         public int Id { get; set; }
 
-        [Required(ErrorMessage = "Ürün ismi boþ geçilemez.")]
         public string ProductName { get; set; }
 
-        [Required(ErrorMessage = "Marka giriniz.")]
         public string Brand { get; set; }
 
-        //[Required(ErrorMessage = "Kategori Seçiniz.")]
         public int CategoryId { get; set; }
 
-        [Required(ErrorMessage = "Fiyat alaný boþ geçilemez.")]
         public decimal UnitPrice { get; set; }
 
-        [Required(ErrorMessage = "Stok Giriniz.")]
         public int StockAmount { get; set; }
 
         

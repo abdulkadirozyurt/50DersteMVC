@@ -1,18 +1,32 @@
-﻿ @using _50DersteMVC.Models.Entity
+﻿@using _50DersteMVC.Models.Entity
 @model List<Customer>
 
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+
+@using (Html.BeginForm("Index", "Customers", FormMethod.Get))
+{
+<p>
+    Aranacak Müşteri : @Html.TextBox("p")
+    <input type="submit" value="search" />
+    
+</p>
+
+}
+<br />
+
+
 <a href="/Customers/AddCustomer/" class="btn btn-primary">Yeni Müşteri</a>
-<br/>
-<br/>
+<br />
+<br />
 <table class="table table-bordered">
 
     <tr>
         <th>#</th>
         <th>Müşteri</th>
+        <th></th>
         <th></th>
 
     </tr>
@@ -28,6 +42,7 @@
                     <a href="/Customers/UpdateCustomer/@item.Id" class="btn btn-success">Güncelle</a>
 
                 </td>
+                <td>@Html.ActionLink("SİL-2", "DeleteCustomer", new { id = item.Id }, new { @class = "btn btn-warning", onclick = "return confirm('Silme İşlemini Onaylıyor Musunuz?')" })</td>
 
             </tr>
         }

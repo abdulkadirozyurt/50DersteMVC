@@ -1,5 +1,8 @@
 ﻿@using _50DersteMVC.Models.Entity
-@model List<Category>
+@model PagedList.IPagedList<Category>
+@using PagedList
+@using PagedList.Mvc 
+
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -36,4 +39,4 @@
 
 </table>
 
-
+@Html.PagedListPager((IPagedList)Model,page=>Url.Action("Index",new { page}))

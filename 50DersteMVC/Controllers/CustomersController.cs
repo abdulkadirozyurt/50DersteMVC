@@ -10,11 +10,19 @@ namespace _50DersteMVC.Controllers
     public class CustomersController : Controller
     {
         Entities entities = new Entities();
-        public ActionResult Index()
+        public ActionResult Index(string p)
         {
-            var customers = entities.Customers.ToList();
+            //var customers = entities.Customers.ToList();
 
-            return View(customers);
+            //return View(customers);
+
+            var customers = (from item in entities.Customers select item);
+            if (!string.IsNullOrEmpty(p))
+            {
+                customers = customers.Where(x => x.FirstName.StartsWith(p));
+            }
+
+            return View(customers.ToList());
         }
 
         [HttpGet]
@@ -61,10 +69,10 @@ namespace _50DersteMVC.Controllers
         public ActionResult UpdateCustomer(Customer customer)
         {
             var customerToUpdate = entities.Customers.Find(customer.Id);
-            customerToUpdate.FirstName= customer.FirstName;
+            customerToUpdate.FirstName = customer.FirstName;
             customerToUpdate.LastName = customer.LastName;
-            
-            entities.SaveChanges(); 
+
+            entities.SaveChanges();
 
             return RedirectToAction("Index");
         }
